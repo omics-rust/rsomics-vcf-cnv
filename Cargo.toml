@@ -24,4 +24,9 @@ clap = { version = "4", features = ["derive"] }
 flate2 = { version = "1", default-features = false, features = ["zlib-rs"] }
 
 [dev-dependencies]
+criterion = { version = "0.7", default-features = false, features = ["cargo_bench_support"] }
 tempfile = "3"
+
+[[bench]]
+name = "bench"
+harness = false
