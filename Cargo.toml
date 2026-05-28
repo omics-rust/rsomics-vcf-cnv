@@ -12,6 +12,11 @@ description = "HMM-based CNV caller from BAF + LRR in a single-sample VCF — Ru
 name = "rsomics-vcf-cnv"
 path = "src/main.rs"
 
+
+[lib]
+name = "rsomics_vcf_cnv"
+path = "src/lib.rs"
+doctest = false
 [dependencies]
 rsomics-common = { version = "0.6" }
 rsomics-help = { version = "0.3" }
