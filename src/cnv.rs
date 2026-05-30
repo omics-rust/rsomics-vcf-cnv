@@ -61,12 +61,8 @@ fn phi(x: f64) -> f64 {
     0.5 * erfc(-x / SQRT_2)
 }
 
-/// erfc via libm-compatible approximation, using Rust's f64::erfc (since 1.62).
+/// erfc via 1 - erf: no libm dep; full precision not required for [0,1] Gaussian tail integrals.
 fn erfc(x: f64) -> f64 {
-    // erfc is stable in Rust std since the initial stable release for f64
-    // but there's no f64::erfc in std; use the series via the error function.
-    // libm is not a dep; compute via 1 - erf using rational approximation.
-    // For our use (integrating over [0,1] Gaussian tails) full precision is not critical.
     1.0 - erf(x)
 }
 
